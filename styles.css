@@ -123,40 +123,6 @@ p {
     color: #555;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-footer .social-links {
-    margin-top: 10px;
-}
-
-footer .social-links a {
-    margin: 0 10px;
-}
-
-footer .social-links .social-icon {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s;
-}
-
-footer .social-links .social-icon:hover {
-    transform: scale(1.1);
-}
 
 #aboutme {
 	font-weight: 200;
