@@ -22,7 +22,7 @@ body {
 
 /* Header Section */
 header {
-    background-color: #4CAF50;
+    background-color: #3D52A0;
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -65,7 +65,7 @@ section {
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #4CAF50;
+    color: darkslategrey
 }
 
 h3 {
@@ -105,13 +105,13 @@ p {
 .project h3 {
     margin-bottom: 10px;
     font-size: 1.3rem;
-    color: #333;
+	color: #007FFF;
 }
 
 .project a {
     text-decoration: none;
-    color: #4CAF50;
     font-weight: bold;
+	color: #007FFF;
 }
 
 .project a:hover {
@@ -156,4 +156,10 @@ footer .social-links .social-icon {
 
 footer .social-links .social-icon:hover {
     transform: scale(1.1);
+}
+
+#aboutme {
+	font-weight: 200;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	line-height: 14pt;
 }
