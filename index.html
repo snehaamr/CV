@@ -37,7 +37,7 @@
             text-align: center;
             z-index: 2; /* Ensure the name is above the canvas */
             position: absolute;
-            top: 20%;
+            top: 21%;
             width: 100%;
         }
 
@@ -45,6 +45,8 @@
         #nav {
             text-align: center;
             position: absolute;
+			margin-top: 5px;
+			margin-bottom: 10px;
             top: 40%;
             width: 100%;
             z-index: 2; /* Ensure the navigation links are above the canvas */
@@ -56,7 +58,7 @@
             text-decoration: none;
             font-size: 18px;
             padding: 10px;
-            margin: 0 20px;
+            margin: 5px 20px;
             transition: color 0.3s ease;
         }
 
@@ -64,6 +66,54 @@
         #nav a:hover {
             color: #007BFF;
         }
+		
+		#about-popup {
+		           display: none; /* Hidden initially */
+		           position: fixed;
+		           top: 0;
+		           left: 0;
+		           width: 100%;
+		           height: 100%;
+		           background-color: rgba(0, 0, 0, 0.7);
+		           /*display: flex;*/
+		           justify-content: center;
+		           align-items: center;
+		           z-index: 2;
+		       }
+
+		       #about-popup .popup-content {
+		           background-color: white;
+		           padding: 15px;
+		           width: 80%;
+		           max-width: 500px;
+		           text-align: left;
+		           border-radius: 8px;
+		           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+				   font-family: Georgia, 'Times New Roman', Times, serif;
+		       }
+
+		       #about-popup h2 {
+		           font-size: 24px;
+		       }
+
+		       #about-popup p {
+		           font-size: 16px;
+		           margin: 10px 0;
+		       }
+
+		       #close-about-btn {
+		           background-color: #333;
+		           color: white;
+		           border: none;
+		           padding: 10px 20px;
+		           cursor: pointer;
+		           margin-top: 10px;
+		           border-radius: 4px;
+		       }
+
+		       #close-about-btn:hover {
+		           background-color: #555;
+		       }
     </style>
 </head>
 <body>
@@ -72,12 +122,31 @@
     <div>
 		<h1 id="name">SNEHA RAO AVULA</h1>
         <nav id="nav">
-            <a href="index.html">ABOUT</a>
+            <a ref="#" id="about-btn">ABOUT</a>
             <a href="projects.html">PROJECTS</a>
             <a href="resume.html">RESUME</a>
             <a href="books.html">BOOKS</a>
         </nav>
     </div>
+	
+	<div id="about-popup">
+	       <div class="popup-content">
+	           <!--<h2>About Me</h2>-->
+	           <p>
+				Hi! I'm Sneha, a Senior Software Engineer with over 10 years of experience in developing scalable, high-performance applications and microservices. Currently, I’m working as a Senior Developer at Sherwin Williams, where I focus on enhancing the Orders and Delivery process through innovative service design and deployment.
+                <br><br>
+				My career spans multiple industries, including finance, fintech, and SaaS, where I've developed expertise in Java, Spring Boot, AWS, Kubernetes, and various other modern technologies.
+       
+				I thrive on tackling complex problems and streamlining processes, whether that’s architecting microservices for credit card systems at American Express or optimizing external bank account integrations at Stash Invest. I'm passionate about building clean, maintainable code, enforcing best practices, and promoting collaboration among cross-functional teams.
+                <br><br>
+				Outside of coding, I’m an avid book lover and lead a vibrant book club in New York where we dive into everything from timeless classics to contemporary works. I also enjoy hiking, cooking, and exploring DIY crafts, all of which fuel my creativity and love for learning. Whether it’s in front of a screen or out in nature, I’m always looking for ways to connect, grow, and create something new.
+                <br><br>
+				Let’s connect—whether you’re interested in technology, books, or creative projects, I love sharing ideas and learning from others!
+				<br>Email: sneharaoavula@gmail.com
+			   </p>
+	           <button id="close-about-btn">Close</button>
+	       </div>
+	</div>
 
     <!-- Include SimplexNoise library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
@@ -251,6 +320,15 @@
             this.pastX = this.x;
             this.pastY = this.y;
         }
+		
+		document.getElementById('about-btn').addEventListener('click', function(e) {
+			           e.preventDefault(); // Prevent default link behavior
+			           document.getElementById('about-popup').style.display = 'flex'; // Show the popup
+			       });
+
+			       document.getElementById('close-about-btn').addEventListener('click', function() {
+			           document.getElementById('about-popup').style.display = 'none'; // Hide the popup
+			       });
     </script>
 </body>
 </html>
