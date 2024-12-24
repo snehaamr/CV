@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/audrey');
@@ -107,13 +108,31 @@
 		           border: none;
 		           padding: 10px 20px;
 		           cursor: pointer;
-		           margin-top: 10px;
+		           margin-top: 15px;
 		           border-radius: 4px;
+				   float: right;
 		       }
 
 		       #close-about-btn:hover {
 		           background-color: #555;
 		       }
+			   .social {
+			   		
+			   		margin: 2px;
+			   		border-radius: 3px;
+			   		float: left; 
+			   		overflow: hidden;
+					color: #007BFF;
+			   	}
+			   			
+				.social a{
+					font-size: 20px;
+					padding: 5px;
+					margin: 0px;
+					border-radius: 0px;
+					display: inline-block;
+					color: #007BFF;
+				}			   			
     </style>
 </head>
 <body>
@@ -144,6 +163,12 @@
 				Let’s connect—whether you’re interested in technology, books, or creative projects, I love sharing ideas and learning from others!
 				<br>Email: sneharaoavula@gmail.com
 			   </p>
+			   <div class="row social" align="center">
+			   		<a target="blank" href="https://www.linkedin.com/in/sneyhamr/"> <i class="fab fa-linkedin"></i></a>
+			   		<a target = "blank" href='https://x.com/Snehaa23' ><i class="fab fa-twitter"></i></a>
+			   		<a target = "blank" href='https://www.facebook.com/sneha.avula.7/'><i class='fab fa-facebook'></i></a>
+			   		<a target = "blank" href='https://www.instagram.com/sneyhamr/'><i class='fab fa-instagram'></i></a>   
+			   	</div>
 	           <button id="close-about-btn">Close</button>
 	       </div>
 	</div>
