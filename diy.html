@@ -1,189 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My DIY Projects</title>
-	<link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
     <style>
-		@import url('https://fonts.cdnfonts.com/css/audrey');
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+      @import url('https://fonts.cdnfonts.com/css/audrey');
 
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
 
-        .project-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-			margin-top: 70pt;
-        }
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
 
+      .project-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        margin-top: 70pt;
+      }
+
+      .project {
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 1200px;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .project:hover {
+        transform: translateY(-10px);
+      }
+
+      .project img {
+        width: 40%;
+        /* Image takes up 40% of the width */
+        height: auto;
+        object-fit: cover;
+      }
+
+      .project-details {
+        padding: 20px;
+        width: 60%;
+        /* Description takes up 60% of the width */
+      }
+
+      .project-details h2 {
+        margin-top: 0;
+        font-size: 1.8rem;
+        color: #333;
+      }
+
+      .project-details p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      .project-details a {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .project-details a:hover {
+        background-color: #555;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         .project {
-            display: flex;
-            flex-direction: row;
-            background-color: #fff;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 1200px;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .project:hover {
-            transform: translateY(-10px);
+          flex-direction: column;
         }
 
         .project img {
-            width: 40%; /* Image takes up 40% of the width */
-            height: auto;
-            object-fit: cover;
+          width: 100%;
+          /* Image takes up full width on smaller screens */
         }
 
         .project-details {
-            padding: 20px;
-            width: 60%; /* Description takes up 60% of the width */
+          width: 100%;
+          /* Description takes up full width on smaller screens */
         }
+      }
 
-        .project-details h2 {
-            margin-top: 0;
-            font-size: 1.8rem;
-            color: #333;
-        }
+      .project-container #header {
+        font-family: 'Audrey', sans-serif;
+        font-weight: 300;
+        font-size: 25pt;
+        text-align: center;
+        z-index: 2;
+        /* Ensure the name is above the canvas */
+        position: absolute;
+        top: 2%;
+        bottom: 2%;
+        width: 100%;
+      }
 
-        .project-details p {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.5;
-        }
+      /* Style the navigation bar */
+      #nav {
+        text-align: center;
+        position: absolute;
+        top: 2%;
+        width: 100%;
+        z-index: 2;
+        /* Ensure the navigation links are above the canvas */
+        margin-bottom: 5pt;
+      }
 
-        .project-details a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
+      /* Style the links in the nav */
+      #nav a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        margin: 0 20px;
+        transition: color 0.3s ease;
+      }
 
-        .project-details a:hover {
-            background-color: #555;
-        }
+      /* On hover, change the color of the links */
+      #nav a:hover {
+        color: #007BFF;
+      }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .project {
-                flex-direction: column;
-            }
-
-            .project img {
-                width: 100%; /* Image takes up full width on smaller screens */
-            }
-
-            .project-details {
-                width: 100%; /* Description takes up full width on smaller screens */
-            }
-        }
-		
-		.project-container #header {
-			font-family: 'Audrey', sans-serif;
-			font-weight: 300;
-			font-size: 25pt;
-			text-align: center;
-			z-index: 2; /* Ensure the name is above the canvas */
-			position: absolute;
-			top: 2%;
-			bottom: 2%;
-			width: 100%;
-		}
-		
-		/* Style the navigation bar */
-		        #nav {
-		            text-align: center;
-		            position: absolute;
-		            top: 2%;
-		            width: 100%;
-		            z-index: 2; /* Ensure the navigation links are above the canvas */
-					margin-bottom: 5pt;
-		        }
-
-		        /* Style the links in the nav */
-		        #nav a {
-		            color: black;
-		            text-decoration: none;
-		            font-size: 18px;
-		            padding: 10px;
-		            margin: 0 20px;
-		            transition: color 0.3s ease;
-		        }
-
-		        /* On hover, change the color of the links */
-		        #nav a:hover {
-		            color: #007BFF;
-		        }
-				h3 {
-					color: #007BFF;
-				}
+      h3 {
+        color: #007BFF;
+      }
     </style>
-</head>
-<body>
-
-	<div>
-		 <nav id="nav">
-			<a href="index.html">ABOUT</a>
-			<a href="projects.html">PROJECTS</a>
-			<a href="resume.html">RESUME</a>
-			<a href="books.html">BOOKS</a>
-		 </nav>												
-	</div>
-<div class="project-container">
-	<p id="header">Do It Yourself</p>
-    <div class="project">
+  </head>
+  <body>
+    <div>
+      <nav id="nav">
+        <a href="index.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="resume.html">RESUME</a>
+        <a href="books.html">BOOKS</a>
+      </nav>
+    </div>
+    <div class="project-container">
+      <p id="header">Do It Yourself</p>
+      <div class="project">
         <img src="images/diy/wooden-table.jpg" alt="Coffee Table">
         <div class="project-details">
-            <h2>Rustic Wooden Coffee Table</h2>
-            <p>I built this rustic farmhouse coffee table using some basic materials: 4 x 2x6 boards (8 feet long), 1 x 2x4 board (8 feet long), 3 x 2x2 furring strips (8 feet long), 100 x 2-1/2" self-tapping screws (picked these up from Home Depot), wood glue, and corner braces for extra support. Building something from scratch always feels pretty satisfying—it’s not just about putting pieces together, but about making something that’s completely your own. There’s a real sense of accomplishment in taking raw materials and turning them into something functional and good-looking. Plus, every time I use the table, I’m reminded that I built it myself, and that’s a pretty cool feeling.</p>
-           <!-- <a href="#">View Details</a>-->
+          <h2>Rustic Wooden Coffee Table</h2>
+          <p>I built this rustic farmhouse coffee table using some basic materials: 4 x 2x6 boards (8 feet long), 1 x 2x4 board (8 feet long), 3 x 2x2 furring strips (8 feet long), 100 x 2-1/2" self-tapping screws (picked these up from Home Depot), wood glue, and corner braces for extra support. Building something from scratch always feels pretty satisfying—it’s not just about putting pieces together, but about making something that’s completely your own. There’s a real sense of accomplishment in taking raw materials and turning them into something functional and good-looking. Plus, every time I use the table, I’m reminded that I built it myself, and that’s a pretty cool feeling.</p>
+          <!-- <a href="#">View Details</a>-->
         </div>
-    </div>
-
-    <div class="project">
-       <!-- <img src="https://via.placeholder.com/400x300" alt="Project 2">-->
+      </div>
+      <div class="project">
+        <!-- <img src="https://via.placeholder.com/400x300" alt="Project 2">-->
         <div class="project-details">
-            <h2>Under Construction</h2>
-           <!-- <p>A simple planter box made from cedar wood, perfect for growing herbs or flowers. It was easy to make and adds a nice touch to any porch or garden. The natural finish gives it a rustic charm.</p>
-            --><a href="#">View Details</a>
+          <h2>Under Construction</h2>
+          <!-- <p>A simple planter box made from cedar wood, perfect for growing herbs or flowers. It was easy to make and adds a nice touch to any porch or garden. The natural finish gives it a rustic charm.</p>
+            -->
+          <a href="#">View Details</a>
         </div>
-    </div>
-
-    <div class="project">
-       <!-- <img src="https://via.placeholder.com/400x300" alt="Project 3">-->
+      </div>
+      <div class="project">
+        <!-- <img src="https://via.placeholder.com/400x300" alt="Project 3">-->
         <div class="project-details">
-            <h2>Under Construction</h2>
-           <!-- <p>This project turned a plain wooden canvas into a beautiful abstract piece of wall art using acrylic paints. It's a simple way to personalize any room, and the creative process was a lot of fun.</p>
-            --><a href="#">View Details</a>
+          <h2>Under Construction</h2>
+          <!-- <p>This project turned a plain wooden canvas into a beautiful abstract piece of wall art using acrylic paints. It's a simple way to personalize any room, and the creative process was a lot of fun.</p>
+            -->
+          <a href="#">View Details</a>
         </div>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>
