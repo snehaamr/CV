@@ -1,92 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projects</title>
     <link rel="stylesheet" href="styles.css">
-	<link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
-	    <style>
-	        @import url('https://fonts.cdnfonts.com/css/audrey');
-	        /* Style the name text */
-	        #name {
-	            font-family: 'Audrey', sans-serif;
-	            font-weight: 300;
-	            font-size: 35pt;
-	            text-align: center;
-	            z-index: 2; /* Ensure the name is above the canvas */
-	            position: absolute;
-	            top: 20%;
-	            width: 100%;
-	        }
+    <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/audrey');
 
-	        /* Style the navigation bar */
-	        #nav {
-	            text-align: center;
-	            position: absolute;
-	            top: 2%;
-	            width: 100%;
-	            z-index: 2; /* Ensure the navigation links are above the canvas */
-	        }
+      /* Style the name text */
+      #name {
+        font-family: 'Audrey', sans-serif;
+        font-weight: 300;
+        font-size: 35pt;
+        text-align: center;
+        z-index: 2;
+        /* Ensure the name is above the canvas */
+        position: absolute;
+        top: 20%;
+        width: 100%;
+      }
 
-	        /* Style the links in the nav */
-	        #nav a {
-	            color: black;
-	            text-decoration: none;
-	            font-size: 18px;
-	            padding: 10px;
-	            margin: 0 20px;
-	            transition: color 0.3s ease;
-	        }
+      /* Style the navigation bar */
+      #nav {
+        text-align: center;
+        position: absolute;
+        top: 2%;
+        width: 100%;
+        z-index: 2;
+        /* Ensure the navigation links are above the canvas */
+      }
 
-	        /* On hover, change the color of the links */
-	        #nav a:hover {
-	            color: #007BFF;
-	        }
-			h3 {
-				color: #007BFF;
-			}
-	    </style>
-</head>
-<body>
-	
+      /* Style the links in the nav */
+      #nav a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        margin: 0 20px;
+        transition: color 0.3s ease;
+      }
+
+      /* On hover, change the color of the links */
+      #nav a:hover {
+        color: #007BFF;
+      }
+
+      h3 {
+        color: #007BFF;
+      }
+    </style>
+  </head>
+  <body>
     <section id="projects">
-		<div>
-			 <nav id="nav">
-				<a href="index.html">ABOUT</a>
-				<a href="projects.html">PROJECTS</a>
-				<a href="resume.html">RESUME</a>
-				<a href="books.html">BOOKS</a>
-			 </nav>												
-		</div>
-        <div class="container">
-            <h2>GitHub Projects<a href="diy.html"><span style="float:right;">...fun DIY!
-			    </span></a></h2>
-            <div class="project">
-                <h3><a href="https://github.com/snehaamr/MobileAdhocNetworkNS3" target="_blank">Mobile Adhoc Network Simulation NS-3</a></h3>
-                <p>Simulation models of a Mobile Ad-Hoc Network (MANET) where nodes communicate with each other using a tree-like structure. Each node has a buffer that holds outgoing packets before they are transmitted, and the simulation tracks the number of packets sent, successfully delivered, and dropped due to buffer overflow. The goal is to analyze how varying buffer sizes affect packet transfer, delivery success, and data loss in the network.</p>
-            </div>
-            <div class="project">
-                <h3><a href="https://github.com/snehaamr/SpeakerRecognitionMatlab" target="_blank">Speaker Recognition using Audio Processing</a></h3>
-                <p>A MATLAB-based speaker recognition system designed to identify individuals by the sound of their voice. The system uses Mel-frequency cepstral coefficients (MFCC) to extract features from recorded speech and compares these features to those stored in a speaker database.</p>
-            </div>
-			<div class="project">
-				 <h3><a href="https://github.com/snehaamr/ClimateAnalysis" target="_blank">Climate Data Analysis using Pig Scripts, Hadoop and D3.js</a></h3>
-				 <p>This project processes climate data for the United States over the past 50 years using Apache Pig on Hadoop. It aggregates the average temperature and total precipitation for each year and visualizes the results using D3.js in a web-based dashboard.</p>
-			</div> 
-			<div class="project">
-				<h3><a href="https://github.com/snehaamr/KafkaProjects" target="_blank">Learning Kafka</a></h3>
-				<p>This project includes varioud concepts of Kafka I have utilized during the learning process</p>
-			</div>
-			<div class="project">
-				<h3><a href="https://github.com/snehaamr/EmployeePayrollManagement" target="_blank">Employee Payroll Management System</a></h3>
-				<p>This project is a comprehensive Employee Management System designed to efficiently manage and store employee information, including personal details, biometric data, department assignments, payroll processing, leave records, and salary management. It is built using modern technologies such as Java, Spring Framework, Hibernate, and JPA (Java Persistence API) to ensure seamless data handling, robust performance, and scalability. The system aims to streamline HR processes, improve data accuracy, and enhance overall operational efficiency. </p>
-			</div>
-			
-				
-            <!-- Add more projects as needed -->
+      <div>
+        <nav id="nav">
+          <a href="index.html">ABOUT</a>
+          <a href="projects.html">PROJECTS</a>
+          <a href="resume.html">RESUME</a>
+          <a href="books.html">BOOKS</a>
+        </nav>
+      </div>
+      <div class="container">
+        <h2>GitHub Projects <a href="diy.html">
+            <span style="float:right;">...fun DIY! </span>
+          </a>
+        </h2>
+        <div class="project">
+          <h3>
+            <a href="https://github.com/snehaamr/MobileAdhocNetworkNS3" target="_blank">Mobile Adhoc Network Simulation NS-3</a>
+          </h3>
+          <p>Simulation models of a Mobile Ad-Hoc Network (MANET) where nodes communicate with each other using a tree-like structure. Each node has a buffer that holds outgoing packets before they are transmitted, and the simulation tracks the number of packets sent, successfully delivered, and dropped due to buffer overflow. The goal is to analyze how varying buffer sizes affect packet transfer, delivery success, and data loss in the network.</p>
         </div>
+        <div class="project">
+          <h3>
+            <a href="https://github.com/snehaamr/SpeakerRecognitionMatlab" target="_blank">Speaker Recognition using Audio Processing</a>
+          </h3>
+          <p>A MATLAB-based speaker recognition system designed to identify individuals by the sound of their voice. The system uses Mel-frequency cepstral coefficients (MFCC) to extract features from recorded speech and compares these features to those stored in a speaker database.</p>
+        </div>
+        <div class="project">
+          <h3>
+            <a href="https://github.com/snehaamr/ClimateAnalysis" target="_blank">Climate Data Analysis using Pig Scripts, Hadoop and D3.js</a>
+          </h3>
+          <p>This project processes climate data for the United States over the past 50 years using Apache Pig on Hadoop. It aggregates the average temperature and total precipitation for each year and visualizes the results using D3.js in a web-based dashboard.</p>
+        </div>
+        <div class="project">
+          <h3>
+            <a href="https://github.com/snehaamr/KafkaProjects" target="_blank">Learning Kafka</a>
+          </h3>
+          <p>This project includes varioud concepts of Kafka I have utilized during the learning process</p>
+        </div>
+        <div class="project">
+          <h3>
+            <a href="https://github.com/snehaamr/EmployeePayrollManagement" target="_blank">Employee Payroll Management System</a>
+          </h3>
+          <p>This project is a comprehensive Employee Management System designed to efficiently manage and store employee information, including personal details, biometric data, department assignments, payroll processing, leave records, and salary management. It is built using modern technologies such as Java, Spring Framework, Hibernate, and JPA (Java Persistence API) to ensure seamless data handling, robust performance, and scalability. The system aims to streamline HR processes, improve data accuracy, and enhance overall operational efficiency. </p>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
     </section>
-</body>
+  </body>
 </html>
