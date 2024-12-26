@@ -1,361 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.cdnfonts.com/css/audrey');
-        body {
-            font-family: sans-serif;
-            padding: 0;
-            margin: 0;
-            background-color: #eee9e9;
-            overflow: hidden;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            position: relative;  /* To contain the canvas and links inside */
-        }
+      @import url('https://fonts.cdnfonts.com/css/audrey');
 
-        /* Position the canvas to cover the entire viewport */
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1; /* Put the canvas behind the other elements */
-        }
+      body {
+        font-family: sans-serif;
+        padding: 0;
+        margin: 0;
+        background-color: #eee9e9;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: relative;
+        /* To contain the canvas and links inside */
+      }
 
-        /* Style the name text */
-        #name {
-            font-family: 'Audrey', sans-serif;
-            font-weight: 300;
-            font-size: 35pt;
-            text-align: center;
-            z-index: 2; /* Ensure the name is above the canvas */
-            position: absolute;
-            top: 21%;
-            width: 100%;
-        }
+      /* Position the canvas to cover the entire viewport */
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        /* Put the canvas behind the other elements */
+      }
 
-        /* Style the navigation bar */
-        #nav {
-            text-align: center;
-            position: absolute;
-			margin-top: 5px;
-			margin-bottom: 10px;
-            top: 40%;
-            width: 100%;
-            z-index: 2; /* Ensure the navigation links are above the canvas */
-        }
+      /* Style the name text */
+      #name {
+        font-family: 'Audrey', sans-serif;
+        font-weight: 300;
+        font-size: 35pt;
+        text-align: center;
+        z-index: 2;
+        /* Ensure the name is above the canvas */
+        position: absolute;
+        top: 21%;
+        width: 100%;
+      }
 
-        /* Style the links in the nav */
-        #nav a {
-            color: black;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
-            margin: 5px 20px;
-            transition: color 0.3s ease;
-        }
+      /* Style the navigation bar */
+      #nav {
+        text-align: center;
+        position: absolute;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        top: 40%;
+        width: 100%;
+        z-index: 2;
+        /* Ensure the navigation links are above the canvas */
+      }
 
-        /* On hover, change the color of the links */
-        #nav a:hover {
-            color: #007BFF;
-        }
-		
-		#about-popup {
-		           display: none; /* Hidden initially */
-		           position: fixed;
-		           top: 0;
-		           left: 0;
-		           width: 100%;
-		           height: 100%;
-		           background-color: rgba(0, 0, 0, 0.7);
-		           /*display: flex;*/
-		           justify-content: center;
-		           align-items: center;
-		           z-index: 2;
-		       }
+      /* Style the links in the nav */
+      #nav a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px;
+        margin: 5px 20px;
+        transition: color 0.3s ease;
+      }
 
-		       #about-popup .popup-content {
-		           background-color: white;
-		           padding: 15px;
-		           width: 80%;
-		           max-width: 500px;
-		           text-align: left;
-		           border-radius: 8px;
-		           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-				   font-family: Georgia, 'Times New Roman', Times, serif;
-		       }
+      /* On hover, change the color of the links */
+      #nav a:hover {
+        color: #007BFF;
+      }
 
-		       #about-popup h2 {
-		           font-size: 24px;
-		       }
+      #about-popup {
+        display: none;
+        /* Hidden initially */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /*display: flex;*/
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+      }
 
-		       #about-popup p {
-		           font-size: 16px;
-		           margin: 10px 0;
-		       }
+      #about-popup .popup-content {
+        background-color: white;
+        padding: 15px;
+        width: 80%;
+        max-width: 500px;
+        text-align: left;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+      }
 
-		       #close-about-btn {
-		           background-color: #333;
-		           color: white;
-		           border: none;
-		           padding: 10px 20px;
-		           cursor: pointer;
-		           margin-top: 15px;
-		           border-radius: 4px;
-				   float: right;
-		       }
+      #about-popup h2 {
+        font-size: 24px;
+      }
 
-		       #close-about-btn:hover {
-		           background-color: #555;
-		       }
-			   .social {
-			   		
-			   		margin: 2px;
-			   		border-radius: 3px;
-			   		float: left; 
-			   		overflow: hidden;
-					color: #007BFF;
-			   	}
-			   			
-				.social a{
-					font-size: 20px;
-					padding: 5px;
-					margin: 0px;
-					border-radius: 0px;
-					display: inline-block;
-					color: #007BFF;
-				}			   			
+      #about-popup p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      #close-about-btn {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 15px;
+        border-radius: 4px;
+        float: right;
+      }
+
+      #close-about-btn:hover {
+        background-color: #555;
+      }
+
+      .social {
+        margin: 2px;
+        border-radius: 3px;
+        float: left;
+        overflow: hidden;
+        color: #007BFF;
+      }
+
+      .social a {
+        font-size: 20px;
+        padding: 5px;
+        margin: 0px;
+        border-radius: 0px;
+        display: inline-block;
+        color: #007BFF;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <canvas id="c"></canvas>
-    
     <div>
-		<h1 id="name">SNEHA RAO AVULA</h1>
-        <nav id="nav">
-            <a ref="#" id="about-btn">ABOUT</a>
-            <a href="projects.html">PROJECTS</a>
-            <a href="resume.html">RESUME</a>
-            <a href="books.html">BOOKS</a>
-        </nav>
+      <h1 id="name">SNEHA RAO AVULA</h1>
+      <nav id="nav">
+        <a ref="#" id="about-btn">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="resume.html">RESUME</a>
+        <a href="books.html">BOOKS</a>
+      </nav>
     </div>
-	
-	<div id="about-popup">
-	       <div class="popup-content">
-	           <!--<h2>About Me</h2>-->
-	           <p>
-				Hi! I'm Sneha, a Senior Software Engineer with over 10 years of experience in developing scalable, high-performance applications and microservices. Currently, I’m working as a Senior Developer at Sherwin Williams, where I focus on enhancing the Orders and Delivery process through innovative service design and deployment.
-                <br><br>
-				My career spans multiple industries, including finance, fintech, and SaaS, where I've developed expertise in Java, Spring Boot, AWS, Kubernetes, and various other modern technologies.
-       
-				I thrive on tackling complex problems and streamlining processes, whether that’s architecting microservices for credit card systems at American Express or optimizing external bank account integrations at Stash Invest. I'm passionate about building clean, maintainable code, enforcing best practices, and promoting collaboration among cross-functional teams.
-                <br><br>
-				Outside of coding, I’m an avid book lover and lead a vibrant book club in New York where we dive into everything from timeless classics to contemporary works. I also enjoy hiking, cooking, and exploring DIY crafts, all of which fuel my creativity and love for learning. Whether it’s in front of a screen or out in nature, I’m always looking for ways to connect, grow, and create something new.
-                <br><br>
-				Let’s connect—whether you’re interested in technology, books, or creative projects, I love sharing ideas and learning from others!
-				<br>Email: sneharaoavula@gmail.com
-			   </p>
-			   <div class="row social" align="center">
-			   		<a target="blank" href="https://www.linkedin.com/in/sneyhamr/"> <i class="fab fa-linkedin"></i></a>
-			   		<a target = "blank" href='https://x.com/Snehaa23' ><i class="fab fa-twitter"></i></a>
-			   		<a target = "blank" href='https://www.facebook.com/sneha.avula.7/'><i class='fab fa-facebook'></i></a>
-			   		<a target = "blank" href='https://www.instagram.com/sneyhamr/'><i class='fab fa-instagram'></i></a>  
-					<a target = "blank" href='https://www.goodreads.com/user/show/83056408-sneha-avula/'><i class='fab fa-goodreads'></i></a>  
-					
-			   	</div>
-	           <button id="close-about-btn">Close</button>
-	       </div>
-	</div>
-
+    <div id="about-popup">
+      <div class="popup-content">
+        <!--<h2>About Me</h2>-->
+        <p> Hi! I'm Sneha, a Senior Software Engineer with over 10 years of experience in developing scalable, high-performance applications and microservices. Currently, I’m working as a Senior Developer at Sherwin Williams, where I focus on enhancing the Orders and Delivery process through innovative service design and deployment. <br>
+          <br> My career spans multiple industries, including finance, fintech, and SaaS, where I've developed expertise in Java, Spring Boot, AWS, Kubernetes, and various other modern technologies. I thrive on tackling complex problems and streamlining processes, whether that’s architecting microservices for credit card systems at American Express or optimizing external bank account integrations at Stash Invest. I'm passionate about building clean, maintainable code, enforcing best practices, and promoting collaboration among cross-functional teams. <br>
+          <br> Outside of coding, I’m an avid book lover and lead a vibrant book club in New York where we dive into everything from timeless classics to contemporary works. I also enjoy hiking, cooking, and exploring DIY crafts, all of which fuel my creativity and love for learning. Whether it’s in front of a screen or out in nature, I’m always looking for ways to connect, grow, and create something new. <br>
+          <br> Let’s connect—whether you’re interested in technology, books, or creative projects, I love sharing ideas and learning from others! <br>Email: sneharaoavula@gmail.com
+        </p>
+        <div class="row social" align="center">
+          <a target="blank" href="https://www.linkedin.com/in/sneyhamr/">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a target="blank" href='https://x.com/Snehaa23'>
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a target="blank" href='https://www.facebook.com/sneha.avula.7/'>
+            <i class='fab fa-facebook'></i>
+          </a>
+          <a target="blank" href='https://www.instagram.com/sneyhamr/'>
+            <i class='fab fa-instagram'></i>
+          </a>
+          <a target="blank" href='https://www.goodreads.com/user/show/83056408-sneha-avula/'>
+            <i class='fab fa-goodreads'></i>
+          </a>
+        </div>
+        <button id="close-about-btn">Close</button>
+      </div>
+    </div>
     <!-- Include SimplexNoise library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
-
     <!-- Include dat.GUI library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
-
     <script>
-        // Request Animation Frame Polyfill
-        window.requestAnimationFrame = (function(){
-            return  window.requestAnimationFrame       ||
-                    window.webkitRequestAnimationFrame ||
-                    window.mozRequestAnimationFrame    ||
-                    window.oRequestAnimationFrame      ||
-                    window.msRequestAnimationFrame     ||
-                    function (callback) {
-                        window.setTimeout(callback, 1000 / 60);
-                    };
-        })();
-
-        // Configs
-        var Configs = {
-            backgroundColor: '#eee9e9',
-            particleNum: 1000,
-            step: 5,
-            base: 1000,
-            zInc: 0.001
+      // Request Animation Frame Polyfill
+      window.requestAnimationFrame = (function() {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+          window.setTimeout(callback, 1000 / 60);
         };
-
-        // Vars
-        var canvas,
-            context,
-            screenWidth,
-            screenHeight,
-            centerX,
-            centerY,
-            particles = [],
-            hueBase = 0,
-            simplexNoise,
-            zoff = 0,
-            gui;
-
-        // Initialize the canvas and start animation
-        window.onload = function() {
-            canvas = document.getElementById('c');
-            window.addEventListener('resize', onWindowResize, false);
-            onWindowResize(null);
-
-            for (var i = 0, len = Configs.particleNum; i < len; i++) {
-                initParticle((particles[i] = new Particle()));
-            }
-
-            simplexNoise = new SimplexNoise();
-
-            canvas.addEventListener('click', onCanvasClick, false);
-
-            gui = new dat.GUI();
-            gui.add(Configs, 'step', 1, 10);
-            gui.add(Configs, 'base', 500, 3000);
-            gui.add(Configs, 'zInc', 0.0001, 0.01);
-            gui.close();
-
-            update();
-        };
-
-        // Event listeners
-        function onWindowResize(e) {
-            screenWidth  = canvas.width  = window.innerWidth;
-            screenHeight = canvas.height = window.innerHeight;
-
-            centerX = screenWidth / 2;
-            centerY = screenHeight / 2;
-
-            context = canvas.getContext('2d');
-            context.lineWidth = 0.3;
-            context.lineCap = context.lineJoin = 'round';
+      })();
+      // Configs
+      var Configs = {
+        backgroundColor: '#eee9e9',
+        particleNum: 1000,
+        step: 5,
+        base: 1000,
+        zInc: 0.001
+      };
+      // Vars
+      var canvas,
+        context,
+        screenWidth,
+        screenHeight,
+        centerX,
+        centerY,
+        particles = [],
+        hueBase = 0,
+        simplexNoise,
+        zoff = 0,
+        gui;
+      // Initialize the canvas and start animation
+      window.onload = function() {
+        canvas = document.getElementById('c');
+        window.addEventListener('resize', onWindowResize, false);
+        onWindowResize(null);
+        for (var i = 0, len = Configs.particleNum; i < len; i++) {
+          initParticle((particles[i] = new Particle()));
         }
+        simplexNoise = new SimplexNoise();
+        canvas.addEventListener('click', onCanvasClick, false);
+        gui = new dat.GUI();
+        gui.add(Configs, 'step', 1, 10);
+        gui.add(Configs, 'base', 500, 3000);
+        gui.add(Configs, 'zInc', 0.0001, 0.01);
+        gui.close();
+        update();
+      };
+      // Event listeners
+      function onWindowResize(e) {
+        screenWidth = canvas.width = window.innerWidth;
+        screenHeight = canvas.height = window.innerHeight;
+        centerX = screenWidth / 2;
+        centerY = screenHeight / 2;
+        context = canvas.getContext('2d');
+        context.lineWidth = 0.3;
+        context.lineCap = context.lineJoin = 'round';
+      }
 
-        function onCanvasClick(e) {
-            context.save();
-            context.globalAlpha = 0.8;
-            context.fillStyle = Configs.backgroundColor;
-            context.fillRect(0, 0, screenWidth, screenHeight);
-            context.restore();
-            
-            simplexNoise = new SimplexNoise();
-            gui.close();
+      function onCanvasClick(e) {
+        context.save();
+        context.globalAlpha = 0.8;
+        context.fillStyle = Configs.backgroundColor;
+        context.fillRect(0, 0, screenWidth, screenHeight);
+        context.restore();
+        simplexNoise = new SimplexNoise();
+        gui.close();
+      }
+      // Functions
+      function getNoise(x, y, z) {
+        var octaves = 4,
+          fallout = 0.5,
+          amp = 1,
+          f = 1,
+          sum = 0,
+          i;
+        for (i = 0; i < octaves; ++i) {
+          amp *= fallout;
+          sum += amp * (simplexNoise.noise3D(x * f, y * f, z * f) + 1) * 0.5;
+          f *= 2;
         }
+        return sum;
+      }
 
-        // Functions
-        function getNoise(x, y, z) {
-            var octaves = 4,
-                fallout = 0.5,
-                amp = 1, f = 1, sum = 0,
-                i;
-
-            for (i = 0; i < octaves; ++i) {
-                amp *= fallout;
-                sum += amp * (simplexNoise.noise3D(x * f, y * f, z * f) + 1) * 0.5;
-                f *= 2;
-            }
-
-            return sum;
+      function initParticle(p) {
+        p.x = p.pastX = screenWidth * Math.random();
+        p.y = p.pastY = screenHeight * Math.random();
+        p.color.h = hueBase + Math.atan2(centerY - p.y, centerX - p.x) * 180 / Math.PI;
+        p.color.s = 1;
+        p.color.l = 0.5;
+        p.color.a = 0;
+      }
+      // Update
+      function update() {
+        var step = Configs.step,
+          base = Configs.base,
+          i, p, angle;
+        for (i = 0, len = particles.length; i < len; i++) {
+          p = particles[i];
+          p.pastX = p.x;
+          p.pastY = p.y;
+          angle = Math.PI * 6 * getNoise(p.x / base * 1.75, p.y / base * 1.75, zoff);
+          p.x += Math.cos(angle) * step;
+          p.y += Math.sin(angle) * step;
+          if (p.color.a < 1) p.color.a += 0.003;
+          context.beginPath();
+          context.strokeStyle = p.color.toString();
+          context.moveTo(p.pastX, p.pastY);
+          context.lineTo(p.x, p.y);
+          context.stroke();
+          if (p.x < 0 || p.x > screenWidth || p.y < 0 || p.y > screenHeight) {
+            initParticle(p);
+          }
         }
-
-        function initParticle(p) {
-            p.x = p.pastX = screenWidth * Math.random();
-            p.y = p.pastY = screenHeight * Math.random();
-            p.color.h = hueBase + Math.atan2(centerY - p.y, centerX - p.x) * 180 / Math.PI;
-            p.color.s = 1;
-            p.color.l = 0.5;
-            p.color.a = 0;
-        }
-
-        // Update
-        function update() {
-            var step = Configs.step,
-                base = Configs.base,
-                i, p, angle;
-            
-            for (i = 0, len = particles.length; i < len; i++) {
-                p = particles[i];
-
-                p.pastX = p.x;
-                p.pastY = p.y;
-            
-                angle = Math.PI * 6 * getNoise(p.x / base * 1.75, p.y / base * 1.75, zoff);
-                p.x += Math.cos(angle) * step;
-                p.y += Math.sin(angle) * step;
-                
-                if (p.color.a < 1) p.color.a += 0.003;
-
-                context.beginPath();
-                context.strokeStyle = p.color.toString();
-                context.moveTo(p.pastX, p.pastY);
-                context.lineTo(p.x, p.y);
-                context.stroke();
-                
-                if (p.x < 0 || p.x > screenWidth || p.y < 0 || p.y > screenHeight) {
-                    initParticle(p);
-                }
-            }
-            
-            hueBase += 0.1;
-            zoff += Configs.zInc;
-
-            requestAnimationFrame(update);
-        }
-
-        /**
-         * HSLA
-         */
-        function HSLA(h, s, l, a) {
-            this.h = h || 0;
-            this.s = s || 0;
-            this.l = l || 0;
-            this.a = a || 0;
-        }
-
-        HSLA.prototype.toString = function() {
-            return 'hsla(' + this.h + ',' + (this.s * 100) + '%,' + (this.l * 100) + '%,' + this.a + ')';
-        }
-
-        /**
-         * Particle
-         */
-        function Particle(x, y, color) {
-            this.x = x || 0;
-            this.y = y || 0;
-            this.color = color || new HSLA();
-            this.pastX = this.x;
-            this.pastY = this.y;
-        }
-		
-		document.getElementById('about-btn').addEventListener('click', function(e) {
-			           e.preventDefault(); // Prevent default link behavior
-			           document.getElementById('about-popup').style.display = 'flex'; // Show the popup
-			       });
-
-			       document.getElementById('close-about-btn').addEventListener('click', function() {
-			           document.getElementById('about-popup').style.display = 'none'; // Hide the popup
-			       });
+        hueBase += 0.1;
+        zoff += Configs.zInc;
+        requestAnimationFrame(update);
+      }
+      /**
+       * HSLA
+       */
+      function HSLA(h, s, l, a) {
+        this.h = h || 0;
+        this.s = s || 0;
+        this.l = l || 0;
+        this.a = a || 0;
+      }
+      HSLA.prototype.toString = function() {
+        return 'hsla(' + this.h + ',' + (this.s * 100) + '%,' + (this.l * 100) + '%,' + this.a + ')';
+      }
+      /**
+       * Particle
+       */
+      function Particle(x, y, color) {
+        this.x = x || 0;
+        this.y = y || 0;
+        this.color = color || new HSLA();
+        this.pastX = this.x;
+        this.pastY = this.y;
+      }
+      document.getElementById('about-btn').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+        document.getElementById('about-popup').style.display = 'flex'; // Show the popup
+      });
+      document.getElementById('close-about-btn').addEventListener('click', function() {
+        document.getElementById('about-popup').style.display = 'none'; // Hide the popup
+      });
     </script>
-</body>
+  </body>
 </html>
