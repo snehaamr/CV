@@ -76,6 +76,20 @@
   </head>
   </head>
   <body>
+    <script>
+    const passcode = prompt("Enter passcode to view resume:");
+    const correctPasscode = "617304"; // Change to your desired passcode
+
+    window.onload = function () {
+      const content = document.getElementById("resume-content");
+      if (passcode === correctPasscode) {
+        content.style.display = "block";
+      } else {
+        content.innerHTML = "<h2 style='text-align:center;'>Access Denied</h2>";
+        content.style.display = "block";
+      }
+    };
+  </script>
     <section id="projects">
       <div>
         <nav id="nav">
