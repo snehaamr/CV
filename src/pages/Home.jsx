@@ -20,9 +20,6 @@ export default function Home() {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <p className="intro-contact">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
         <SocialLinks links={site.social} />
       </div>
       <div className="intro-photo">
