@@ -2,7 +2,6 @@ export const site = {
   name: 'Sneha Avula',
   title: 'Senior Software Engineer',
   location: 'New York',
-  email: 'sneharaoavula@gmail.com',
   photo: 'images/profile-photo.jpg',
   focus: ['Java', 'Spring Boot', 'AWS', 'Kubernetes', 'Distributed systems'],
   about: [
@@ -22,6 +21,7 @@ export const site = {
 }
 
 export const navLinks = [
+  { to: '/resume', label: 'Resume' },
   { to: '/projects', label: 'Projects' },
   { to: '/books', label: 'Books' },
 ]

@@ -1,18 +1,15 @@
-import { education, jobs } from '../data/resume.js'
-import { site } from '../data/site.js'
-import SocialLinks from '../components/SocialLinks.jsx'
+import { education, jobs, skills, summary } from '../data/resume.js'
 
 export default function Resume() {
   return (
     <>
-      <div className="page-header">
-        <h1 className="page-title">Employment History</h1>
-        <SocialLinks links={site.social} />
-      </div>
+      <h1 className="page-title">Resume</h1>
+      <p className="resume-summary">{summary}</p>
       <div className="card-list">
+        <h2 className="section-title">Employment</h2>
         {jobs.map((job) => (
           <article className="card" key={`${job.company}-${job.dates}`}>
-            <h2>{job.role}</h2>
+            <h3>{job.role}</h3>
             <p className="meta">
               <strong>{job.company}</strong> | {job.dates}
             </p>
@@ -21,6 +18,7 @@ export default function Resume() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            {job.technologies ? <p className="tech">{job.technologies}</p> : null}
           </article>
         ))}
         <article className="card">
@@ -34,6 +32,14 @@ export default function Resume() {
               {item.dates}
             </p>
           ))}
+        </article>
+        <article className="card">
+          <h2>Skills</h2>
+          <ul className="focus-list">
+            {skills.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </article>
       </div>
     </>
