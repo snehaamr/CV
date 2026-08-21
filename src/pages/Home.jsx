@@ -1,24 +1,33 @@
-import { useState } from 'react'
 import { site } from '../data/site.js'
-import AboutDialog from '../components/AboutDialog.jsx'
-import ParticleField from '../components/ParticleField.jsx'
+import { asset } from '../lib/asset.js'
+import SocialLinks from '../components/SocialLinks.jsx'
 
 export default function Home() {
-  const [aboutOpen, setAboutOpen] = useState(false)
-
   return (
-    <>
-      <ParticleField />
-      <div className="main">
-        <h1 className="display-name">{site.name}</h1>
-        <p className="tagline">{site.title}</p>
-        <div className="home-actions">
-          <button type="button" className="btn btn-primary" onClick={() => setAboutOpen(true)}>
-            About
-          </button>
-        </div>
+    <section className="intro">
+      <div className="intro-copy">
+        <p className="eyebrow">
+          {site.title}
+          <span aria-hidden="true"> · </span>
+          {site.location}
+        </p>
+        <h1 className="intro-heading">Backend systems, platforms, and production services.</h1>
+        {site.about.map((paragraph) => (
+          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        ))}
+        <ul className="focus-list">
+          {site.focus.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="intro-contact">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <SocialLinks links={site.social} />
       </div>
-      <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} />
-    </>
+      <div className="intro-photo">
+        <img src={asset(site.photo)} alt={site.name} />
+      </div>
+    </section>
   )
 }

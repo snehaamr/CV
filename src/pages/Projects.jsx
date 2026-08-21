@@ -6,7 +6,7 @@ export default function Projects() {
     <>
       <div className="page-header">
         <h1 className="page-title">GitHub Projects</h1>
-        <Link to="/diy">...fun DIY!</Link>
+        <Link to="/diy">DIY projects</Link>
       </div>
       <div className="card-list">
         {projects.map((project) => (
