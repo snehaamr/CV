@@ -12,8 +12,8 @@ export default function Home() {
           {site.location}
         </p>
         <h1 className="intro-heading">Backend systems, platforms, and production services.</h1>
-        {site.about.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        {site.about.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
         ))}
         <ul className="focus-list">
           {site.focus.map((item) => (
