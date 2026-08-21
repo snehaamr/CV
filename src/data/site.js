@@ -1,25 +1,27 @@
 export const site = {
   name: 'Sneha Avula',
   title: 'Senior Software Engineer',
+  location: 'New York',
   email: 'sneharaoavula@gmail.com',
+  photo: 'images/profile-photo.jpg',
+  focus: ['Java', 'Spring Boot', 'AWS', 'Kubernetes', 'Distributed systems'],
   about: [
-    "Hi! I'm Sneha, a Senior Software Engineer with over 10 years of experience in developing scalable, high-performance applications and microservices.",
-    "My career spans multiple industries, including finance, fintech, and SaaS, where I've developed expertise in Java, Spring Boot, AWS, Kubernetes, and various other modern technologies. I thrive on tackling complex problems and streamlining processes, whether that's architecting microservices for credit card systems at American Express or optimizing external bank account integrations at Stash Invest. I'm passionate about building clean, maintainable code, enforcing best practices, and promoting collaboration among cross-functional teams.",
-    "Outside of coding, I'm an avid book lover and lead a vibrant book club in New York where we dive into everything from timeless classics to contemporary works. I also enjoy hiking, cooking, and exploring DIY crafts, all of which fuel my creativity and love for learning. Whether it's in front of a screen or out in nature, I'm always looking for ways to connect, grow, and create something new.",
-    "Let's connect—whether you're interested in technology, books, or creative projects, I love sharing ideas and learning from others!",
+    "I'm a senior software engineer with over 10 years of experience building scalable services and platforms across finance, fintech, and SaaS.",
+    "I've led design and delivery of production systems—from partner-facing credit card microservices at American Express to external bank-account and money-movement flows at Stash Invest, and more recently order and delivery services at Sherwin-Williams. Day to day I work in Java, Spring Boot, AWS, and Kubernetes, with a strong bias toward clear interfaces, reliable operations, and code that other engineers can own.",
+    "I care about maintainable systems, practical CI and testing, and working well with product and adjacent teams. Outside of work I run a book club in New York, and I spend time hiking, cooking, and on DIY projects.",
   ],
   social: [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/sneyhamr/', icon: 'linkedin' },
+    { name: 'GitHub', href: 'https://github.com/snehaamr', icon: 'github' },
     { name: 'Medium', href: 'https://medium.com/@sneha.avula23', icon: 'medium' },
-    { name: 'X', href: 'https://x.com/Snehaa23', icon: 'x' },
-    { name: 'Facebook', href: 'https://www.facebook.com/sneha.avula.7/', icon: 'facebook' },
-    { name: 'Instagram', href: 'https://www.instagram.com/sneyhamr/', icon: 'instagram' },
     { name: 'Goodreads', href: 'https://www.goodreads.com/user/show/83056408-sneha-avula/', icon: 'goodreads' },
+    { name: 'X', href: 'https://x.com/Snehaa23', icon: 'x' },
+    { name: 'Instagram', href: 'https://www.instagram.com/sneyhamr/', icon: 'instagram' },
+    { name: 'Facebook', href: 'https://www.facebook.com/sneha.avula.7/', icon: 'facebook' },
   ],
 }
 
 export const navLinks = [
-  { to: '/', label: 'About' },
   { to: '/projects', label: 'Projects' },
   { to: '/books', label: 'Books' },
 ]

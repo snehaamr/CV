@@ -1,17 +1,14 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Nav from './Nav.jsx'
 
 export default function Layout() {
-  const { pathname } = useLocation()
-  const isHome = pathname === '/'
-
   return (
-    <div className={isHome ? 'home' : undefined}>
+    <div className="site">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <Nav transparent={isHome} />
-      <main id="main" className={isHome ? undefined : 'main'}>
+      <Nav />
+      <main id="main" className="main">
         <Outlet />
       </main>
     </div>
