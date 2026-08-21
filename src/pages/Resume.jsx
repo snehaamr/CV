@@ -9,16 +9,16 @@ export default function Resume() {
         <h2 className="section-title">Employment</h2>
         {jobs.map((job) => (
           <article className="card" key={`${job.company}-${job.dates}`}>
-            <h3>{job.role}</h3>
-            <p className="meta">
-              <strong>{job.company}</strong> | {job.dates}
-            </p>
+            <div className="job-head">
+              <h3>{job.role}</h3>
+              <p className="job-dates">{job.dates}</p>
+            </div>
+            <p className="meta">{job.company}</p>
             <ul className="bullets">
               {job.bullets.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            {job.technologies ? <p className="tech">{job.technologies}</p> : null}
           </article>
         ))}
         <article className="card">

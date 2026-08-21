@@ -213,16 +213,29 @@ a {
 }
 
 .resume-summary {
-  max-width: 46rem;
+  max-width: none;
   margin: 0 0 32px;
   font-size: 1.08rem;
   color: #2c2a26;
 }
 
-.tech {
-  margin: 14px 0 0;
+.job-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 4px;
+}
+
+.job-head h3 {
+  margin: 0;
+}
+
+.job-dates {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .card .focus-list {
@@ -407,5 +420,9 @@ a {
 
   .main {
     padding: 28px 16px 72px;
+  }
+
+  .job-head {
+    flex-wrap: wrap;
   }
 }

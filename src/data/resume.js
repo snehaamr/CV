@@ -17,8 +17,6 @@ export const jobs = [
       "Built LLM-powered functionality using OpenAI's GPT API and AWS Bedrock to parse unstructured delivery instructions, summarize order notes, and generate proactive responses to customer inquiries.",
       'Utilized AI coding assistants (GitHub Copilot, Claude) to support code generation, automated testing, and pull request reviews, increasing development productivity and maintaining high code quality standards.',
     ],
-    technologies:
-      'Java 17, Spring Boot, AWS, RESTful APIs, Jenkins, ECS, Oracle/PLSQL, Docker/Kubernetes, JUnit/Mockito, React, Bedrock, OpenAI GPT, AI assistants',
   },
   {
     role: 'Senior Java Developer',
@@ -31,8 +29,6 @@ export const jobs = [
       'Reduced rewards update latency from 3 days to real-time using Kafka stream processing, enhancing customer experience across partner platforms.',
       'Partnered with cross-functional upstream/downstream teams to ensure seamless API integration and data flow.',
     ],
-    technologies:
-      'Java 11, Spring Boot/JPA, CI/CD, SonarQube, AWS (ECS, EKS, Kafka, Kinesis, S3, Secret Manager, CloudFront, CloudWatch), Terraform, Postgres, Kubernetes, Redis, JUnit, Grafana, Kibana',
   },
   {
     role: 'Senior Software Engineer',
@@ -49,8 +45,6 @@ export const jobs = [
       'Developed Python scripts to backfill DynamoDB, supporting the user transition from Quovo to Plaid.',
       'Integrated Braze API for marketing automation, resulting in a 15% increase in customer engagement through targeted push campaigns.',
     ],
-    technologies:
-      'Scala/Akka, Plaid API, Ruby on Rails, AWS (ECS, Kafka, SNS/SQS, S3, Fargate, Lambda, Secret Manager, IAM, CloudFront, Encryption SDK, CloudWatch, DynamoDB, ElastiCache), Terraform, CircleCI, PostgreSQL, Kubernetes, Sumo Logic, Looker, Sentry, Honeybadger, New Relic, Braze',
   },
   {
     role: 'Software Developer',
@@ -67,23 +61,6 @@ export const jobs = [
       'Optimized landing-page performance, reducing iframe latency from 13s to 4s, significantly improving user engagement and retention rates.',
       'Collaborated with the data science team on targeting users by most-visited store, retailers, purchase history, and location-based data.',
     ],
-    technologies:
-      'Java 8, Spring MVC, Swagger, RESTful APIs, Angular, HTML5, CSS/SASS, Bootstrap, Google Analytics, Google Tag Manager, Redis',
-  },
-  {
-    role: 'Junior Software Developer',
-    company: 'JPMC — TA Adapter Bank Loans',
-    dates: 'November 2014 – April 2016',
-    bullets: [
-      'Coordinated with product owners and stakeholders for requirement analysis, creating acceptance criteria and translating them into feature scenarios using Cucumber.',
-      'Developed and deployed loan processing modules in Java/Spring, reducing trade settlement times by 40% and integrating with legacy banking systems.',
-      'Engineered modules to parse high-volume XML trade data, store structured records in internal databases, and transmit transformed XML payloads to downstream systems via JMS.',
-      'Conducted thorough code reviews using Fisheye/Crucible, ensuring high-quality software development and adherence to best practices.',
-      'Utilized REST APIs for communicating with external clients.',
-      'Engineered BDD tests with Cucumber, enhancing test coverage and software reliability. Deployed applications on Apache Tomcat.',
-    ],
-    technologies:
-      'Java 7, Spring, Maven/Jenkins, REST APIs, BDD, Fisheye, Crucible, Tomcat, JMS, Cucumber/Selenium, JUnit/Mockito',
   },
 ]
 
