@@ -3,7 +3,13 @@ export const site = {
   title: 'Senior Software Engineer',
   location: 'New York',
   photo: 'images/profile-photo.jpg',
-  focus: ['Java', 'Spring Boot', 'AWS', 'Kafka', 'Python'],
+  focus: [
+    'Distributed Systems',
+    'Microservices',
+    'Performance Optimization',
+    'Agentic AI',
+    'MCP',
+  ],
   about: [
     "I'm Sneha, a senior software engineer. I've spent most of my career building backend systems, especially microservices, distributed systems, and event driven architectures. Java, Spring Boot, and AWS are my home base. I like working on systems that need to scale, and I especially enjoy figuring out how to make them faster, more reliable, and easier to maintain once they're running in production.",
     "Over the years, I've worked across fintech, financial services, and retail, building systems around payments, partner integrations, money movement, order management, and third party integrations. I enjoy the kind of problems where there isn't an obvious answer and you have to understand how different pieces of a system interact before deciding what to change. I also like working across teams, talking through architecture and tradeoffs, and helping other engineers along the way.",
