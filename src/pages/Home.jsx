@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <section className="intro">
       <div className="intro-copy">
+        <h1 className="visually-hidden">{site.name}</h1>
         <p className="eyebrow">
           {site.title}
           <span aria-hidden="true"> · </span>
           {site.location}
         </p>
-        <h1 className="intro-heading">Backend systems, platforms, and production services.</h1>
-        {site.about.map((paragraph) => (
-          <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+        {site.about.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
         ))}
         <ul className="focus-list">
           {site.focus.map((item) => (

@@ -1,5 +1,23 @@
 export const projects = [
   {
+    title: 'AI Document Intelligence Platform',
+    href: 'https://github.com/snehaamr/DocumentIntelligencePlatform',
+    description:
+      'A document processing platform where authenticated users upload files, extract text, and use LLMs to classify and summarize content. Work runs asynchronously through background workers rather than blocking the request path. Built with Django, Django REST Framework, Celery, Redis, PostgreSQL, Docker, and OpenAI, with a layered backend, repository and service boundaries, transactional consistency, tests, and containerized deployment.',
+  },
+  {
+    title: 'MusicPod — AI-assisted playlists',
+    href: 'https://github.com/snehaamr/MusicPod',
+    description:
+      'A modular music backend for catalogs, user libraries, playlists, playback history, and hybrid search, plus AI-assisted playlist curation. PostgreSQL is the source of truth, Kafka handles async work, Redis caches, and OpenSearch powers lexical, semantic, and hybrid retrieval. It also exposes an authenticated MCP server over Streamable HTTP so tools can query and act on a user’s library with ownership checks and an audit trail. Other pieces include JWT auth, a transactional outbox, Flyway migrations, Docker Compose, and automated unit and integration tests.',
+  },
+  {
+    title: 'FastPay gRPC — real-time payments API',
+    href: 'https://github.com/snehaamr/fastpay-grpc',
+    description:
+      'A high-throughput, low-latency gRPC service in Java and Protobuf that models a real-time payments API. It covers the four gRPC interaction styles: unary RPCs for a single transfer, client streaming for bulk uploads, server streaming for status updates (initiated through settled), and bidirectional streaming for a live two-way transaction feed—the kind of patterns used in instant payments, payroll batches, and monitoring.',
+  },
+  {
     title: 'Mobile Adhoc Network Simulation NS-3',
     href: 'https://github.com/snehaamr/MobileAdhocNetworkNS3',
     description:
@@ -16,12 +34,6 @@ export const projects = [
     href: 'https://github.com/snehaamr/ClimateAnalysis',
     description:
       'This project processes climate data for the United States over the past 50 years using Apache Pig on Hadoop. It aggregates the average temperature and total precipitation for each year and visualizes the results using D3.js in a web-based dashboard.',
-  },
-  {
-    title: 'Kafka Learning Exercises',
-    href: 'https://github.com/snehaamr/KafkaProjects',
-    description:
-      'A series of experimental exercises designed to deepen the understanding of Kafka and its ecosystem. The focus is on producer-consumer interactions, Kafka Streams, data serialization with Avro, and real-time aggregation and analytics—from basic messaging patterns to advanced stream processing such as moving averages, event counts, and mirrored data streams.',
   },
   {
     title: 'Employee Payroll Management System',
