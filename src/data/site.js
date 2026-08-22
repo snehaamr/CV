@@ -30,5 +30,6 @@ export const site = {
 export const navLinks = [
   { to: '/resume', label: 'Resume' },
   { to: '/projects', label: 'Projects' },
+  { to: '/photography', label: 'Photography' },
   { to: '/books', label: 'Books' },
 ]
