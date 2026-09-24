@@ -66,6 +66,18 @@ export const jobs = [
       'Integrated Google Analytics and Google Tag Manager to improve visibility into user behavior and product engagement.',
     ],
   },
+  {
+    role: 'Junior Software Developer',
+    company: 'JPMorgan Chase — TA Adapter Bank Loans',
+    dates: 'November 2014 – April 2016',
+    bullets: [
+      'Developed loan-processing services using Java and Spring, contributing to workflow improvements that reduced trade settlement times by approximately 40%.',
+      'Built high-volume XML processing modules that parsed incoming trade data, persisted normalized records, and transmitted transformed payloads to downstream banking systems through JMS.',
+      'Developed REST APIs and integrations supporting communication between internal services and external clients.',
+      'Worked with product owners and stakeholders to translate business requirements into technical acceptance criteria.',
+      'Improved application reliability through automated BDD testing with Cucumber, JUnit, and Mockito.',
+    ],
+  },
 ]
 
 export const education = [
