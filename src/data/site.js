@@ -20,7 +20,7 @@ export const site = {
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/sneyhamr/', icon: 'linkedin' },
     { name: 'GitHub', href: 'https://github.com/snehaamr', icon: 'github' },
     { name: 'Medium', href: 'https://medium.com/@sneha.avula23', icon: 'medium' },
-    { name: 'Goodreads', href: 'https://www.goodreads.com/user/show/83056408-sneha-avula/', icon: 'goodreads' },
+    { name: 'Goodreads', href: 'https://www.goodreads.com/snehaavula', icon: 'goodreads' },
     { name: 'X', href: 'https://x.com/Snehaa23', icon: 'x' },
     { name: 'Instagram', href: 'https://www.instagram.com/sneyhamr/', icon: 'instagram' },
     { name: 'Facebook', href: 'https://www.facebook.com/sneha.avula.7/', icon: 'facebook' },
