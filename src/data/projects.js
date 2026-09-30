@@ -1,22 +1,79 @@
-export const projects = [
+export const featuredProjects = [
   {
     title: 'AI Document Intelligence Platform',
     href: 'https://github.com/snehaamr/DocumentIntelligencePlatform',
-    description:
-      'A document processing platform where authenticated users upload files, extract text, and use LLMs to classify and summarize content. Work runs asynchronously through background workers rather than blocking the request path. Built with Django, Django REST Framework, Celery, Redis, PostgreSQL, Docker, and OpenAI, with a layered backend, repository and service boundaries, transactional consistency, tests, and containerized deployment.',
+    summary:
+      'A Django document pipeline that accepts uploads, extracts text, and classifies and summarizes content with an LLM—without holding the request open while the model runs.',
+    problem:
+      'Document classification and summarization are slow, failure-prone, and easy to bolt onto a request thread. A naive “upload, then call OpenAI” path blocks the API, duplicates work on retries, and leaves no audit trail when a model call fails.',
+    choice:
+      'Keep the HTTP path thin: JWT-authenticated upload returns immediately, then a Celery worker on Redis does extraction, OpenAI analysis, classification, and summary persistence. Services and repositories stay separate from controllers. Retries use a row lock and enqueue only after commit so two clients cannot queue the same failed document twice.',
+    constraint:
+      'Model latency and token cost cannot sit on the critical path. Failed jobs have to be retryable without re-uploading the file, and processing history (status, duration, model, tokens, errors) has to survive for debugging.',
+    result:
+      'Uploads stay non-blocking; AI work scales with workers instead of web processes. Failed documents can be retried safely. The repo ships Docker Compose, PostgreSQL, and 22 automated tests covering auth, ownership, retry, and history.',
+    architecture: [
+      'Client',
+      'Django REST + JWT',
+      'Service / repository',
+      'PostgreSQL',
+      'Celery + Redis',
+      'Text extraction',
+      'OpenAI',
+      'Results + history',
+    ],
   },
   {
     title: 'MusicPod — AI-assisted playlists',
     href: 'https://github.com/snehaamr/MusicPod',
-    description:
-      'A modular music backend for catalogs, user libraries, playlists, playback history, and hybrid search, plus AI-assisted playlist curation. PostgreSQL is the source of truth, Kafka handles async work, Redis caches, and OpenSearch powers lexical, semantic, and hybrid retrieval. It also exposes an authenticated MCP server over Streamable HTTP so tools can query and act on a user’s library with ownership checks and an audit trail. Other pieces include JWT auth, a transactional outbox, Flyway migrations, Docker Compose, and automated unit and integration tests.',
+    summary:
+      'A Java/Spring music backend for catalog, libraries, playlists, hybrid search, AI curation, and an authenticated MCP server over Streamable HTTP.',
+    problem:
+      'Playlist features, search, and agent tools all want catalog data, but writing events in the same transaction as the HTTP request (or indexing only with embeddings) either loses events or makes retrieval brittle. MCP makes that worse if tools can act as any user.',
+    choice:
+      'PostgreSQL is the source of truth. Catalog and playback changes go through a transactional outbox, then Kafka, then OpenSearch—so search indexes update without dual-writes. Search is hybrid (lexical + semantic) rather than embeddings alone. MCP tools run as the authenticated user, with ownership checks and a persistent audit log of AI and MCP executions.',
+    constraint:
+      'Search cannot drift from Postgres, and agent writes cannot skip auth. Domain modules share a runtime but keep catalog, library, playback, search, and MCP separate in code.',
+    result:
+      'Clients get REST and MCP against the same user-scoped library. Events publish reliably via the outbox, search supports keyword and meaning, and AI playlist writes are controlled and auditable. Flyway, Docker Compose, and unit/integration tests come with the repo.',
+    architecture: [
+      'REST / MCP client',
+      'Spring Security + JWT',
+      'Catalog / library / playback',
+      'PostgreSQL',
+      'Transactional outbox',
+      'Kafka',
+      'OpenSearch + embeddings',
+      'Hybrid search / AI curator',
+    ],
   },
   {
     title: 'FastPay gRPC — real-time payments API',
     href: 'https://github.com/snehaamr/fastpay-grpc',
-    description:
-      'A high-throughput, low-latency gRPC service in Java and Protobuf that models a real-time payments API. It covers the four gRPC interaction styles: unary RPCs for a single transfer, client streaming for bulk uploads, server streaming for status updates (initiated through settled), and bidirectional streaming for a live two-way transaction feed—the kind of patterns used in instant payments, payroll batches, and monitoring.',
+    summary:
+      'A Java gRPC payments service covering unary transfers, bulk client streams, status server streams, and a live bidirectional feed—with a ledger, idempotency, and rate limiting.',
+    problem:
+      'REST plus JSON is a poor fit for live payment status and high-frequency streams: chatty round trips, no first-class streaming, and retries that easily double-post money. Amounts as floats are equally dangerous.',
+    choice:
+      'gRPC and Protobuf on HTTP/2, with money as integer cents. Each transfer has a unique transaction_id; a retry returns replayed=true and does not post twice. A token-bucket per API key limits unary and stream messages and returns RESOURCE_EXHAUSTED with retry pushback. Settled/failed/flagged payments write a transactional outbox row for webhooks in the same commit as the ledger update.',
+    constraint:
+      'This is a demo ledger (SQLite by default, Postgres as a HA step), not a bank. Still, the API has to survive retries, insufficient funds, fraud flags on the live stream, and load tests without corrupting balances.',
+    result:
+      'Unary, bulk, status, refund, and live RPCs share one contract. Idempotent posting, hashed API keys with roles, pagination, and optional TLS are in the service. ghz can drive the unary path so you can watch p50/p95/p99 and QPS; CI runs Gradle tests and a Docker build.',
+    architecture: [
+      'gRPC client',
+      'Auth + rate limit',
+      'FastPay RPCs',
+      'Idempotent ledger',
+      'SQLite / Postgres',
+      'Transactional outbox',
+      'Webhooks',
+      'Status / live streams',
+    ],
   },
+]
+
+export const earlierProjects = [
   {
     title: 'Mobile Adhoc Network Simulation NS-3',
     href: 'https://github.com/snehaamr/MobileAdhocNetworkNS3',

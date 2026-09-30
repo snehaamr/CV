@@ -206,7 +206,7 @@ a {
   font-family: var(--serif);
   font-size: 1.15rem;
   font-weight: 600;
-  margin: 12px 0 0;
+  margin: 40px 0 16px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
@@ -308,6 +308,82 @@ a {
 
 .bullets li + li {
   margin-top: 6px;
+}
+
+.case-study-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.case-study-head h2 {
+  margin: 0;
+}
+
+.case-study-head a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.case-study-points {
+  margin: 20px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.case-study-points div {
+  margin: 0;
+}
+
+.case-study-points dt {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.case-study-points dd {
+  margin: 0;
+}
+
+.arch-title {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 22px 0 10px;
+}
+
+.arch-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 0;
+}
+
+.arch-flow li {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.88rem;
+}
+
+.arch-arrow {
+  margin-left: 10px;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .review {
