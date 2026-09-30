@@ -1,98 +1,44 @@
-export const featuredProjects = [
+export const projects = [
   {
     title: 'AI Document Intelligence Platform',
     href: 'https://github.com/snehaamr/DocumentIntelligencePlatform',
-    summary:
-      'I wanted a place to upload a PDF or image, extract the text, and get a classification plus a short summary from an LLM. Django, Celery, Redis, Postgres, Docker, OpenAI.',
-    problem:
-      'If you call OpenAI in the upload request, the API just sits there. Retries also get messy — people hit retry twice and you process the same file twice.',
-    choice:
-      "The upload returns right away. A Celery worker does extraction and the OpenAI call. I used a row lock and only enqueue after the transaction commits so two retries don't pile up on the same document. Failed jobs keep the original file, so you don't have to upload again.",
-    constraint:
-      'The model is slow and can fail. I still needed a history of what ran — status, how long it took, which model, tokens if I got them, and the error.',
-    result:
-      "Uploads don't wait on the model. You can retry a failed doc without re-uploading. There are tests around auth, ownership, retry, and history. Docker Compose brings up the whole stack.",
-    architecture: [
-      'Upload API',
-      'Postgres',
-      'Celery / Redis',
-      'Extract text',
-      'OpenAI',
-      'Save summary',
-    ],
+    description:
+      'A document processing platform where authenticated users upload files, extract text, and use LLMs to classify and summarize content. Work runs asynchronously through background workers rather than blocking the request path. Built with Django, Django REST Framework, Celery, Redis, PostgreSQL, Docker, and OpenAI, with a layered backend, repository and service boundaries, transactional consistency, tests, and containerized deployment.',
   },
   {
     title: 'MusicPod — AI-assisted playlists',
     href: 'https://github.com/snehaamr/MusicPod',
-    summary:
-      'A Spring Boot backend for a music catalog, likes, playlists, search, and an MCP server so an agent can use your library. Java, Postgres, Kafka, Redis, OpenSearch.',
-    problem:
-      "If you write to Postgres and OpenSearch in the same request, one of them will eventually disagree. Search that is only embeddings is also annoying when you just want a song title. And I didn't want MCP tools acting as some other user.",
-    choice:
-      'Postgres is the source of truth. Catalog and playback changes go to an outbox table in the same commit, then Kafka, then OpenSearch. Search is hybrid — keyword plus vectors. MCP runs as the logged-in user, checks ownership, and I log what the agent did.',
-    constraint:
-      'Search has to stay close to Postgres. Agent writes still need the same auth as the REST API. The domains share one app, but catalog, library, search, and MCP are split in the code.',
-    result:
-      "REST and MCP hit the same library. Events don't get lost if Kafka is down for a second. You can search by name or by vibe. Tests and Docker Compose are in the repo.",
-    architecture: [
-      'REST / MCP',
-      'JWT',
-      'App services',
-      'Postgres',
-      'Outbox',
-      'Kafka',
-      'OpenSearch',
-      'Search / AI playlists',
-    ],
+    description:
+      'A modular music backend for catalogs, user libraries, playlists, playback history, and hybrid search, plus AI-assisted playlist curation. PostgreSQL is the source of truth, Kafka handles async work, Redis caches, and OpenSearch powers lexical, semantic, and hybrid retrieval. It also exposes an authenticated MCP server over Streamable HTTP so tools can query and act on a user’s library with ownership checks and an audit trail. Other pieces include JWT auth, a transactional outbox, Flyway migrations, Docker Compose, and automated unit and integration tests.',
   },
   {
     title: 'FastPay gRPC — real-time payments API',
     href: 'https://github.com/snehaamr/fastpay-grpc',
-    summary:
-      'A small Java gRPC payments API. One transfer, a bulk upload, status updates, and a live two-way stream. Not a real bank — I built it to learn the gRPC patterns.',
-    problem:
-      'REST is awkward for a live feed of payments. Retries are worse: hit the same transfer twice and you move the money twice. Floats for money are a trap.',
-    choice:
-      "gRPC + Protobuf, amounts as integer cents. Each transfer has a transaction id. If you send it again, you get replayed=true and the ledger doesn't post twice. There's a rate limit per API key so a client can't flood the server. When a payment settles or fails, a webhook row is written in the same commit as the ledger update.",
-    constraint:
-      'Default store is SQLite (Postgres is optional). It still has to survive retries, insufficient funds, and a couple of simple fraud flags on the live stream without wrecking balances.',
-    result:
-      'The four gRPC styles are in one service, plus refunds and a basic journal. I used ghz to poke at latency and throughput. Gradle tests and a Docker build run in CI.',
-    architecture: [
-      'gRPC client',
-      'Auth / rate limit',
-      'Payment RPCs',
-      'Ledger',
-      'SQLite / Postgres',
-      'Outbox',
-      'Webhooks',
-    ],
+    description:
+      'A high-throughput, low-latency gRPC service in Java and Protobuf that models a real-time payments API. It covers the four gRPC interaction styles: unary RPCs for a single transfer, client streaming for bulk uploads, server streaming for status updates (initiated through settled), and bidirectional streaming for a live two-way transaction feed—the kind of patterns used in instant payments, payroll batches, and monitoring.',
   },
-]
-
-export const earlierProjects = [
   {
     title: 'Mobile Adhoc Network Simulation NS-3',
     href: 'https://github.com/snehaamr/MobileAdhocNetworkNS3',
     description:
-      'NS-3 simulations of a mobile ad-hoc network. I was looking at how buffer size changes packet delivery vs drops.',
+      'Simulation models of a Mobile Ad-Hoc Network (MANET) where nodes communicate with each other using a tree-like structure. Each node has a buffer that holds outgoing packets before they are transmitted, and the simulation tracks the number of packets sent, successfully delivered, and dropped due to buffer overflow. The goal is to analyze how varying buffer sizes affect packet transfer, delivery success, and data loss in the network.',
   },
   {
     title: 'Speaker Recognition using Audio Processing',
     href: 'https://github.com/snehaamr/SpeakerRecognitionMatlab',
     description:
-      'A MATLAB project that tries to recognize a speaker from MFCCs compared against a small speaker database.',
+      'A MATLAB-based speaker recognition system designed to identify individuals by the sound of their voice. The system uses Mel-frequency cepstral coefficients (MFCC) to extract features from recorded speech and compares these features to those stored in a speaker database.',
   },
   {
     title: 'Climate Data Analysis using Pig Scripts, Hadoop and D3.js',
     href: 'https://github.com/snehaamr/ClimateAnalysis',
     description:
-      'Pig on Hadoop over ~50 years of US climate data, then a D3 page for average temperature and precipitation by year.',
+      'This project processes climate data for the United States over the past 50 years using Apache Pig on Hadoop. It aggregates the average temperature and total precipitation for each year and visualizes the results using D3.js in a web-based dashboard.',
   },
   {
     title: 'Employee Payroll Management System',
     href: 'https://github.com/snehaamr/EmployeePayrollManagement',
     description:
-      'A Java / Spring / Hibernate app for employee records, leave, and payroll. School/early-career CRUD, basically.',
+      'A comprehensive Employee Management System for personal details, biometric data, department assignments, payroll processing, leave records, and salary management. Built with Java, Spring, Hibernate, and JPA to streamline HR processes and keep data accurate at scale.',
   },
 ]
