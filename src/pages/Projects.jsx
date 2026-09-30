@@ -34,19 +34,19 @@ function CaseStudy({ project }) {
           <dd>{project.problem}</dd>
         </div>
         <div>
-          <dt>Design choice</dt>
+          <dt>What I did</dt>
           <dd>{project.choice}</dd>
         </div>
         <div>
-          <dt>Constraint</dt>
+          <dt>The catch</dt>
           <dd>{project.constraint}</dd>
         </div>
         <div>
-          <dt>Result</dt>
+          <dt>How it went</dt>
           <dd>{project.result}</dd>
         </div>
       </dl>
-      <h3 className="arch-title">How it fits together</h3>
+      <h3 className="arch-title">Rough flow</h3>
       <ArchitectureFlow steps={project.architecture} />
     </article>
   )
@@ -60,15 +60,14 @@ export default function Projects() {
         <Link to="/diy">DIY projects</Link>
       </div>
       <p className="resume-summary">
-        Three systems I built to practice production backend patterns—async work, search, payments APIs, and
-        authenticated AI tools. Each one has a GitHub repo with code, tests, and how to run it.
+        A few backends I've been building on the side. Code is on GitHub if you want to poke around.
       </p>
       <div className="card-list">
         {featuredProjects.map((project) => (
           <CaseStudy key={project.href} project={project} />
         ))}
       </div>
-      <h2 className="section-title">Earlier and academic</h2>
+      <h2 className="section-title">Older / school</h2>
       <div className="card-list">
         {earlierProjects.map((project) => (
           <article className="card" key={project.href}>
