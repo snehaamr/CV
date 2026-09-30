@@ -18,6 +18,12 @@ export const projects = [
       'A high-throughput, low-latency gRPC service in Java and Protobuf that models a real-time payments API. It covers the four gRPC interaction styles: unary RPCs for a single transfer, client streaming for bulk uploads, server streaming for status updates (initiated through settled), and bidirectional streaming for a live two-way transaction feed—the kind of patterns used in instant payments, payroll batches, and monitoring.',
   },
   {
+    title: 'agent-trace-eval — agent eval harness',
+    href: 'https://github.com/snehaamr/agent-trace-eval',
+    description:
+      'A Python eval harness for a tool-using payments exception agent. Each turn is recorded as OpenTelemetry GenAI spans (chat, tools, retrieval, guardrails). Runs are scored with deterministic metrics such as task success, tool recall, groundedness, and dollars per task, and CI fails if quality or cost regresses. The suite has 24 FastPay exception cases and uses a fake ledger and pager so CI does not call Stripe, PagerDuty, or a live model unless you opt in.',
+  },
+  {
     title: 'Mobile Adhoc Network Simulation NS-3',
     href: 'https://github.com/snehaamr/MobileAdhocNetworkNS3',
     description:
