@@ -22,7 +22,6 @@ export const site = {
     { name: 'Medium', href: 'https://medium.com/@sneha.avula23', icon: 'medium' },
     { name: 'Goodreads', href: 'https://www.goodreads.com/snehaavula', icon: 'goodreads' },
     { name: 'Instagram', href: 'https://www.instagram.com/sneyhamr/', icon: 'instagram' },
-    { name: 'Facebook', href: 'https://www.facebook.com/sneha.avula.7/', icon: 'facebook' },
   ],
 }
 
